@@ -1,0 +1,50 @@
+
+<div class="btn-menu">
+    <label for="btn-menu" >
+       
+        <img class="icon-menu" src="icons/menu-hamburguesa.png" alt=""></label>
+</div>
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+<div class="cont-menu">
+ <nav>
+
+
+
+
+    <form (ngSubmit)="onSubmit(productForm)" #productForm="ngForm">
+        <div class="form-group">
+            <h5>Nombre</h5>
+            <input type="text" name="nombre" placeholder="Escribir el nombre">
+        </div>
+        <br>
+        <div class="form-group">
+            <h5>Telefono</h5>
+            <input type="text" name="telefono" placeholder="Escribir el nombre">
+        </div>
+        <br>
+        <div class="form-group">
+            <h5>Descripcion</h5>
+            <input type="text" name="descripcion" placeholder="Escribir el nombre">
+        </div>
+        <br>
+        <div class="form-group">
+            <h5>Fecha de cita</h5>
+            <input type="datetime-local" name="fecha_cita" placeholder="Escribir el nombre">
+        </div>
+        <br>
+        <div>
+            <button [disabled]="!productForm.form.valid" type="submit" class="btn btn-primary my-2">{{record.id_registro> 0?'update':'create'}}</button>
+            <button type="button" class="btn btn-success my-2 mx-2" (click)="clean()" >Clean</button>
+        </div>
+    </form>
+
+
+
+
+ </nav>
+ <label for="btn-menu" class="icon-close"><img class="icon-close" src="icons/cruz.png" alt=""></label>
+</div>
+</div>
+
+

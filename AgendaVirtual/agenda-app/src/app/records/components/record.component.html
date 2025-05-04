@@ -1,0 +1,35 @@
+<app-form (newRecordEvent)="addRecord($event)" [record]="recordSelected"></app-form>
+<div class="container my-5">
+
+
+@if(records.length>0){
+
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Descripcion</th>
+                <th>Fecha de la Cita</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(record of records; track $index){
+            <tr>
+                <td>{{record.nombre}}</td>
+                <td>{{record.telefono}}</td>   
+                <td>{{record.descripcion}}</td>
+                <td>{{record.fecha_cita}}</td>
+                <td>
+                    <button (click)="onUpdateRecord(record)" class="btn btn-sm btn-secondary">Actualizar</button> |
+                    <button (click)="onRemoveRecord(record.id_registro)" class="btn btn-sm btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}@else {
+    <div class="alert alert-info">No hay registros en el sistema</div>
+}
+</div>
