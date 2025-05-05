@@ -23,11 +23,11 @@ recordSelected: Record = new Record();
 
  addRecord(record: Record): void {
   if(record.id_registro > 0){
-    this.service.update(record).subscribe(productUpdated =>{
+    this.service.update(record).subscribe(recordUpdated =>{
       
       this.records = this.records.map(reco => {
         if(reco.id_registro == record.id_registro ){
-          return {... productUpdated};
+          return {... recordUpdated};
         }
         return reco;
       });

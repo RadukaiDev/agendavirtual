@@ -15,5 +15,10 @@ public class DataRestConfig implements RepositoryRestConfigurer {
 
 config.exposeIdsFor(Record.class);
 
+cors.addMapping("/registros/**") // O la ruta base de tu API REST (puede ser "/" si usas la raíz)
+.allowedOrigins("http://localhost:4200") // Origen de tu app Angular
+.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
+.allowedHeaders("*"); // Cabeceras permitidas (puedes ser más específico si quieres)
+
     }
 }

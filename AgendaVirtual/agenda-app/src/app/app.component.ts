@@ -10,7 +10,7 @@ import { RecordComponent } from './records/components/record.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'agenda-app';
+  title = 'Aplicación de Agenda';
   enabled:boolean = false;
 
 setEnabled():void{

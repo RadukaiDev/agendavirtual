@@ -12,29 +12,87 @@
 
 
 
-    <form (ngSubmit)="onSubmit(productForm)" #productForm="ngForm">
+    <form (ngSubmit)="onSubmit(recordForm)" #recordForm="ngForm">
         <div class="form-group">
             <h5>Nombre</h5>
-            <input type="text" name="nombre" placeholder="Escribir el nombre">
+            <input 
+            type="text" 
+            name="nombre" 
+            placeholder="¿Cómo se llama la persona?"
+            [(ngModel)]="record.nombre" 
+            #nombre="ngModel"
+            required minlength="5">
+
+
+            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+                <div *ngIf="nombre.errors!['required']">
+                    Se requiere un nombre
+                </div>
+                <div *ngIf="nombre.errors!['minlength']">
+                    El nombre debe tener al menos 5 caracteres
+                </div>
+            </div>
+
+
         </div>
         <br>
         <div class="form-group">
             <h5>Telefono</h5>
-            <input type="text" name="telefono" placeholder="Escribir el nombre">
+            <input 
+            type="text" 
+            name="telefono" 
+            [(ngModel)]="record.telefono" 
+            #telefono="ngModel"
+            required maxlength="10"
+            placeholder="Número de Telefono">
+
+            <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert alert-danger">
+                <div *ngIf="telefono.errors!['required']">
+                    Se requiere un nombre
+                </div>
+                <div *ngIf="telefono.errors!['minlength']">
+                    El numero de telefono debe tener al menos 10 caracteres
+                </div>
+            </div>
+
         </div>
         <br>
         <div class="form-group">
             <h5>Descripcion</h5>
-            <input type="text" name="descripcion" placeholder="Escribir el nombre">
+            <input 
+            type="text" 
+            name="descripcion" 
+            [(ngModel)]="record.descripcion" 
+            #descripcion="ngModel"
+            required
+            placeholder="¿Cuál es el asunto que se llevará a cabo?">
+
+            <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="alert alert-danger">
+                <div *ngIf="descripcion.errors!['required']">
+                    Se requiere una descripción
+                </div>
+            </div>
         </div>
         <br>
         <div class="form-group">
             <h5>Fecha de cita</h5>
-            <input type="datetime-local" name="fecha_cita" placeholder="Escribir el nombre">
+            <input 
+            type="datetime-local" 
+            name="fecha_cita" 
+            [(ngModel)]="record.fecha_cita" 
+            #fecha_cita="ngModel"
+            required
+            placeholder="Fecha y hora de la cita">
+
+            <div *ngIf="fecha_cita.invalid && (fecha_cita.dirty || fecha_cita.touched)" class="alert alert-danger">
+                <div *ngIf="fecha_cita.errors!['required']">
+                    Se requiere una fecha para la cita
+                </div>
+            </div>
         </div>
         <br>
         <div>
-            <button [disabled]="!productForm.form.valid" type="submit" class="btn btn-primary my-2">{{record.id_registro> 0?'update':'create'}}</button>
+            <button [disabled]="!recordForm.form.valid" type="submit" class="btn btn-primary my-2">{{record.id_registro> 0?'update':'create'}}</button>
             <button type="button" class="btn btn-success my-2 mx-2" (click)="clean()" >Clean</button>
         </div>
     </form>
