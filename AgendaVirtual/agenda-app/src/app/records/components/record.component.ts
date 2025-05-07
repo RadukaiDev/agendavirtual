@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 
 
 export class RecordComponent implements OnInit{
+
 records: Record[] = [];
 recordSelected: Record = new Record();
   constructor(private service: RecordService){}
@@ -51,5 +52,13 @@ onRemoveRecord(id_registro:number): void{
   }
 
 )}
+
+confirmAndRemoveRecord(id_registro: number): void {
+  const userConfirmed = window.confirm('¿Estás seguro de que deseas eliminar este registro?');
+  if (userConfirmed) {
+    this.onRemoveRecord(id_registro);
+  }
+}
+
 
 }

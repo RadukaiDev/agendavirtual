@@ -31,7 +31,8 @@
                             Actualizar
                         </a>
                         </label> |
-                    <button (click)="onRemoveRecord(record.id_registro)" class="btn btn-sm btn-danger">Eliminar</button>
+                        
+                        <button (click)="confirmAndRemoveRecord(record.id_registro)" class="btn btn-sm btn-danger">Eliminar</button>
                 </td>
             </tr>
         }
