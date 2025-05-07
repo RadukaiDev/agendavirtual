@@ -1,10 +1,12 @@
 
+
 <div class="btn-menu">
-    <label for="btn-menu" >
+    <label for="btn-menu">
        
-        <img class="icon-menu" src="icons/menu-hamburguesa.png" alt=""></label>
+        <img class="icon-menu" src="icons/agregar-usuario.png" alt=""></label>
 </div>
 <input type="checkbox" id="btn-menu">
+
 <div class="container-menu">
 <div class="cont-menu">
  <nav>
@@ -18,13 +20,13 @@
             <input 
             type="text" 
             name="nombre" 
-            placeholder="¿Cómo se llama la persona?"
+            placeholder="Escribir nombre"
             [(ngModel)]="record.nombre" 
             #nombre="ngModel"
             required minlength="5">
 
 
-            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert">
                 <div *ngIf="nombre.errors!['required']">
                     Se requiere un nombre
                 </div>
@@ -46,9 +48,10 @@
             required maxlength="10"
             placeholder="Número de Telefono">
 
-            <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert alert-danger">
+            <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert">
                 <div *ngIf="telefono.errors!['required']">
-                    Se requiere un nombre
+                    <br>
+                    Se requiere un número de telefono
                 </div>
                 <div *ngIf="telefono.errors!['minlength']">
                     El numero de telefono debe tener al menos 10 caracteres
@@ -67,7 +70,7 @@
             required
             placeholder="¿Cuál es el asunto que se llevará a cabo?">
 
-            <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="alert alert-danger">
+            <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="alert">
                 <div *ngIf="descripcion.errors!['required']">
                     Se requiere una descripción
                 </div>
@@ -84,16 +87,17 @@
             required
             placeholder="Fecha y hora de la cita">
 
-            <div *ngIf="fecha_cita.invalid && (fecha_cita.dirty || fecha_cita.touched)" class="alert alert-danger">
+            <div *ngIf="fecha_cita.invalid && (fecha_cita.dirty || fecha_cita.touched)" class="alert">
                 <div *ngIf="fecha_cita.errors!['required']">
+                    <br>
                     Se requiere una fecha para la cita
                 </div>
             </div>
         </div>
         <br>
-        <div>
-            <button [disabled]="!recordForm.form.valid" type="submit" class="btn btn-primary my-2">{{record.id_registro> 0?'update':'create'}}</button>
-            <button type="button" class="btn btn-success my-2 mx-2" (click)="clean()" >Clean</button>
+        <div class="btn-group">
+            <button [disabled]="!recordForm.form.valid" type="submit" class="btn btn-primary my-2">{{record.id_registro> 0?'Actualizar':'Agregar'}}</button>
+            <button type="button" class="btn btn-success my-2 mx-2" (click)="clean()" >Limpiar</button>
         </div>
     </form>
 

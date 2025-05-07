@@ -4,6 +4,9 @@
 
 @if(records.length>0){
 
+    <div class="calendar-head">
+        <h3>Citas Registradas</h3>
+    </div>
     <table class="table table-hover table-striped">
         <thead>
             <tr>
@@ -22,7 +25,12 @@
                 <td>{{record.descripcion}}</td>
                 <td>{{record.fecha_cita}}</td>
                 <td>
-                    <button for="btn-menu" (click)="onUpdateRecord(record)" class="btn btn-sm btn-secondary">Actualizar</button> |
+
+                    <label for="btn-menu">
+                        <a (click)="onUpdateRecord(record)" class="btn btn-sm btn-secondary">
+                            Actualizar
+                        </a>
+                        </label> |
                     <button (click)="onRemoveRecord(record.id_registro)" class="btn btn-sm btn-danger">Eliminar</button>
                 </td>
             </tr>

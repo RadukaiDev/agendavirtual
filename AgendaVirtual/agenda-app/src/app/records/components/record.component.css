@@ -1,0 +1,12 @@
+.calendar-head{
+background-color: rgb(7, 190, 129);
+text-align: center;
+color: black;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+border: 1px solid black;
+}
+
+.table{
+    border: 1px solid black;
+}

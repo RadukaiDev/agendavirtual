@@ -2,6 +2,12 @@
     cursor: pointer;
     width: 30px;
     height: 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+ }
+
+ .icon-menu:hover{
+    filter: invert(30%) sepia(95%) saturate(1500%) hue-rotate(190deg) brightness(90%) contrast(100%);
  }
  .icon-close{
      cursor: pointer;
@@ -64,9 +70,21 @@
  }
 
  .form-group{
-    margin-left: 10px;
- }
-
- .form-group{
+    margin-left: 8px;
     color: white;
  }
+.form-group input{
+    width: 90%;
+}
+
+.alert{
+    display: flex;
+    max-height: 10px;
+    align-items: center;
+    margin-bottom: 0px;
+    color: rgb(112, 1, 1);
+}
+
+.btn-group{
+    margin-left: 8px;
+}
